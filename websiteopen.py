@@ -8,16 +8,6 @@ main = Tk()
 
 
 
-b3 = Button(main,text="b1")
-b4 = Button(main,text="b1")
-b5 = Button(main,text="b1")
-b6 = Button(main,text="b1")
-b7 = Button(main,text="b1")
-b8 = Button(main,text="b1")
-b9 = Button(main,text="b1")
-b10 = Button(main,text="b1")
-
-
 def setup():
     with open('safe.txt' , 'r') as safe_file:
         adress = safe_file.read()
