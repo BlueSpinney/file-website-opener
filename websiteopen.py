@@ -60,4 +60,3 @@ e1.pack()
 
 
 main.mainloop()
-
