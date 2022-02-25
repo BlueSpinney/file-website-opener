@@ -42,7 +42,7 @@ def setup():
         adress = safe_file.read()
         fname_start = adress.find("nS")
         fname_end = adress.find("nE")
-        if fname_start - fname_end > 2:
+        if fname_start - fname_end > 3:
             currentsave.configure(text="current website : " + adress[adress.find("https://") + 8:adress.find(".com")])
             if adress.find("www") > 0:
                 currentsave.configure(text="current website : " + adress[adress.find("https://www") + 12:adress.find(".com")])
