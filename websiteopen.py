@@ -1,7 +1,6 @@
 import webbrowser
 from tkinter import *
-import os
-import sys
+
 
 
 main = Tk()
@@ -27,17 +26,7 @@ def setup():
         inf2.pack()
         b3.pack()  
 
-        if adress.find("www") > 0:
-            currentsave.configure(text="current website : " + adress[adress.find("https://www") + 12:adress.find(".com")])
-            currentsave.pack()
-            b2.pack()
-            b1.pack()
-            e1.pack()
-            inf.pack()
-            e2.pack()
-            space.pack()
-            inf2.pack()
-            b3.pack()  
+
 
 
     with open('safe.txt' , 'r') as safe_file:
@@ -62,6 +51,8 @@ def saveadress():
     with open('graveyard.txt','w') as graveyard:
         graveyard.write(adress)
         b3.configure(text=adress[adress.find("https://") + 8:adress.find(".com")])
+        if adress.find("www.") > 0:
+            b3.configure(text=adress[adress.find("https://www.") + 12:adress.find(".com")])
         currentsave.pack()
         b2.pack()
         b1.pack()
@@ -70,18 +61,7 @@ def saveadress():
         e2.pack()
         space.pack()
         inf2.pack()
-        b3.pack()
-        if adress.find("www") > 0:
-            currentsave.configure(text="current website : " + adress[adress.find("https://www") + 12:adress.find(".com")])
-            currentsave.pack()
-            b2.pack()
-            b1.pack()
-            e1.pack()
-            inf.pack()
-            e2.pack()
-            space.pack()
-            inf2.pack()
-            b3.pack()  
+        b3.pack()  
 
     adress = e1.get()
         
@@ -101,6 +81,7 @@ def define_browser():
         adress = safe_file.read()
     
     webbrowser.open(adress[0:adress.find("nS")])
+
 def opengraveyard():
     with open('graveyard.txt','r') as safe_file:
         adress = safe_file.read()
