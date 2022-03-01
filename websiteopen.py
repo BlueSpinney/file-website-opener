@@ -15,6 +15,8 @@ def setup():
     with open('graveyard.txt','w') as graveyard:
         graveyard.write(adress)
         b3.configure(text=adress[adress.find("https://") + 8:adress.find(".com")])
+        if adress.find("www.") > 0:
+            b3.configure(text=adress[adress.find("https://www.") + 12:adress.find(".com")])
         currentsave.pack()
         b2.pack()
         b1.pack()
@@ -42,11 +44,12 @@ def setup():
         adress = safe_file.read()
         fname_start = adress.find("nS")
         fname_end = adress.find("nE")
-        if fname_start - fname_end > 3:
+        if fname_end - fname_start >= 2:
             currentsave.configure(text="current website : " + adress[adress.find("https://") + 8:adress.find(".com")])
             if adress.find("www") > 0:
                 currentsave.configure(text="current website : " + adress[adress.find("https://www") + 12:adress.find(".com")])
         else:
+            print(fname_end - fname_start)
             currentsave.configure(text="current website : " + adress[fname_start + 2:fname_end])
         
 
